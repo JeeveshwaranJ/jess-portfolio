@@ -123,7 +123,7 @@ export default function BuiltThese() {
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group relative flex-shrink-0 w-[80vw] sm:w-[450px] h-[340px] md:h-[400px] lg:h-[420px] touch-pan-y"
+                className="group relative flex-shrink-0 w-[80vw] sm:w-[450px] h-[380px] sm:h-[400px] md:h-[400px] lg:h-[420px] touch-pan-y"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -136,9 +136,9 @@ export default function BuiltThese() {
 
                 {/* The Card */}
                 <div 
-                  className={`relative z-10 w-full h-full ${project.color} border-brutal shadow-[12px_12px_0_rgba(245,241,232,1)] p-8 flex flex-col justify-between transition-all duration-300 ease-out group-hover:-translate-y-4 group-hover:-translate-x-2 group-hover:shadow-[20px_20px_0_rgba(245,241,232,1)]`}
+                  className={`relative z-10 w-full h-full ${project.color} border-brutal shadow-[12px_12px_0_rgba(245,241,232,1)] p-6 md:p-8 flex flex-col justify-between transition-all duration-300 ease-out group-hover:-translate-y-4 group-hover:-translate-x-2 group-hover:shadow-[20px_20px_0_rgba(245,241,232,1)]`}
                 >
-                  <div className="border-b-4 border-neo-black pb-4 mb-4">
+                  <div className="border-b-4 border-neo-black pb-3 mb-3 md:pb-4 md:mb-4">
                     <span className="font-body text-base md:text-xl font-bold uppercase block mb-2 opacity-80 border-2 border-neo-black inline-block px-3 py-1 rounded-full bg-white/20">
                       Vol. {index + 1}
                     </span>
@@ -148,13 +148,13 @@ export default function BuiltThese() {
                   </div>
 
                   <div className="flex-1 flex flex-col justify-end">
-                    <p className="font-body font-bold text-lg md:text-2xl text-neo-black mb-6 lg:mb-8 border-l-4 border-neo-black pl-4">
+                    <p className="font-body font-bold text-base md:text-xl lg:text-2xl text-neo-black mb-3 md:mb-6 lg:mb-8 border-l-4 border-neo-black pl-4">
                       {project.desc}
                     </p>
 
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.tech.map((t, i) => (
-                        <span key={i} className="bg-neo-black text-neo-cream px-3 py-2 font-body text-xs md:text-sm font-bold border-2 border-neo-black">
+                        <span key={i} className="bg-neo-black text-neo-cream px-2.5 py-1.5 md:px-3 md:py-2 font-body text-[10px] sm:text-xs md:text-sm font-bold border-2 border-neo-black">
                           {t}
                         </span>
                       ))}
