@@ -4,10 +4,34 @@ import { motion } from "framer-motion";
 import Character from "./Character";
 
 const stickyNotes = [
-  { id: 1, text: "Writes clean code.", color: "bg-neo-yellow", rotate: -5, x: -100, y: 50 },
-  { id: 2, text: "Loves coffee.", color: "bg-neo-orange", rotate: 8, x: 120, y: -20 },
-  { id: 3, text: "Prompt Engineer.", color: "bg-neo-purple text-neo-cream", rotate: -12, x: 150, y: 150 },
-  { id: 4, text: "UI/UX obsessed.", color: "bg-[#4ade80]", rotate: 4, x: -150, y: -40 },
+  { 
+    id: 1, 
+    text: "Writes clean code.", 
+    color: "bg-neo-yellow", 
+    rotate: -5, 
+    posClass: "left-[4%] top-[45%] md:left-[10%] md:top-[48%]" 
+  },
+  { 
+    id: 2, 
+    text: "Loves coffee.", 
+    color: "bg-neo-orange", 
+    rotate: 8, 
+    posClass: "right-[2%] top-[12%] md:right-[8%] md:top-[10%]" 
+  },
+  { 
+    id: 3, 
+    text: "Prompt Engineer.", 
+    color: "bg-neo-purple text-neo-cream", 
+    rotate: -12, 
+    posClass: "right-[4%] top-[45%] md:right-[10%] md:top-[48%]" 
+  },
+  { 
+    id: 4, 
+    text: "UI/UX obsessed.", 
+    color: "bg-[#4ade80]", 
+    rotate: 4, 
+    posClass: "left-[2%] top-[12%] md:left-[8%] md:top-[10%]" 
+  },
 ];
 
 export default function TheLab() {
@@ -68,11 +92,9 @@ export default function TheLab() {
         {stickyNotes.map((note, index) => (
           <motion.div
             key={note.id}
-            className={`absolute z-40 w-40 h-40 ${note.color} border-brutal shadow-brutal p-4 flex items-center justify-center text-center`}
+            className={`absolute z-40 w-32 h-32 md:w-40 md:h-40 ${note.color} ${note.posClass} border-brutal shadow-brutal p-3 md:p-4 flex items-center justify-center text-center`}
             style={{ 
               rotate: note.rotate,
-              left: `calc(50% + ${note.x}px)`,
-              top: `calc(50% + ${note.y}px)`,
             }}
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -84,7 +106,7 @@ export default function TheLab() {
               delay: 0.6 + index * 0.1 
             }}
           >
-            <p className="font-body font-bold text-xl">{note.text}</p>
+            <p className="font-body font-bold text-sm md:text-lg lg:text-xl leading-tight">{note.text}</p>
             {/* Thumbtack */}
             <div className="absolute top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-neo-black rounded-full shadow-sm" />
           </motion.div>

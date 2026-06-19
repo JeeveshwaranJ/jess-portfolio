@@ -133,7 +133,7 @@ export default function Hero() {
                     <img
                       src="/avatar2.png"
                       alt="Jess.dev illustrated avatar sitting on top of the hero text"
-                      className="w-full h-auto object-contain drop-shadow-[6px_6px_0_rgba(18,18,18,1)]"
+                      className="w-full h-auto object-contain"
                     />
                   </motion.div>
                 </span>

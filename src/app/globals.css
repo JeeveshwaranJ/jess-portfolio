@@ -65,6 +65,15 @@ body {
   .btn-brutal:hover {
     box-shadow: var(--shadow-brutal-hover);
   }
+  
+  /* hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Custom Marquee Animation */

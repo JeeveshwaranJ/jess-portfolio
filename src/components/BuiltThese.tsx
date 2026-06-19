@@ -39,6 +39,16 @@ export default function BuiltThese() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollRange, setScrollRange] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const calculateScroll = () => {
@@ -90,9 +100,9 @@ export default function BuiltThese() {
   const x = useTransform(smoothProgress, [0, 1], [0, -scrollRange]);
 
   return (
-    <section id="projects" ref={containerRef} className="relative h-[300vh] bg-neo-black border-b-brutal-thick">
+    <section id="projects" ref={containerRef} className="relative h-auto md:h-[300vh] bg-neo-black border-b-brutal-thick">
       {/* Sticky viewport container */}
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center py-8">
+      <div className="relative md:sticky md:top-0 h-auto md:h-screen md:overflow-hidden flex flex-col justify-center py-12 md:py-8">
         
         {/* Background graphic */}
         <div 
@@ -100,7 +110,7 @@ export default function BuiltThese() {
           style={{ backgroundImage: "radial-gradient(#F5F1E8 2px, transparent 2px)", backgroundSize: "30px 30px" }} 
         />
 
-        <div className="px-8 lg:px-16 mb-8 lg:mb-12 relative z-10 flex items-end justify-between">
+        <div className="px-8 lg:px-16 mb-4 md:mb-8 lg:mb-12 relative z-10 flex items-end justify-between">
           <h2 className="font-display text-6xl md:text-8xl lg:text-9xl text-neo-cream drop-shadow-[6px_6px_0_rgba(124,92,255,1)] uppercase">
             BUILT THESE
           </h2>
@@ -113,16 +123,16 @@ export default function BuiltThese() {
         </div>
 
         {/* Horizontal scroll track viewport */}
-        <div className="w-full relative z-20 overflow-hidden px-8 lg:px-16">
+        <div className="w-full relative z-20 overflow-x-auto md:overflow-hidden px-8 lg:px-16 no-scrollbar">
           <motion.div 
             ref={scrollRef}
-            style={{ x }}
-            className="flex gap-8 pb-10 pt-28"
+            style={{ x: isMobile ? 0 : x }}
+            className="flex gap-8 pb-10 pt-20 md:pt-28"
           >
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="group relative flex-shrink-0 w-[80vw] sm:w-[450px] h-[340px] md:h-[400px] lg:h-[420px]"
+                className="group relative flex-shrink-0 w-[80vw] sm:w-[450px] h-[340px] md:h-[400px] lg:h-[420px] snap-center"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}

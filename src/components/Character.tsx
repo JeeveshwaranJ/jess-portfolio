@@ -76,6 +76,7 @@ export default function Character({ pose = "idle", className = "", showBg = true
         src="/avatar.png" 
         alt={alt} 
         fill
+        sizes="(max-width: 768px) 256px, 384px"
         className="object-contain pointer-events-none drop-shadow-[0_10px_0_rgba(18,18,18,1)] scale-[1.15] -translate-y-4"
         priority
         draggable={false}
