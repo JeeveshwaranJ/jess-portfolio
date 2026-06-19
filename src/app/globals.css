@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-neo-purple: #7C5CFF;
+  --color-neo-black: #121212;
+  --color-neo-cream: #F5F1E8;
+  --color-neo-yellow: #FDE047;
+  --color-neo-orange: #FF5722;
+  
+  --font-display: var(--font-anton);
+  --font-body: var(--font-space-mono);
+  
+  --shadow-brutal: 8px 8px 0px 0px #121212;
+  --shadow-brutal-sm: 4px 4px 0px 0px #121212;
+  --shadow-brutal-hover: 12px 12px 0px 0px #121212;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Selection */
+::selection {
+  background-color: var(--color-neo-yellow);
+  color: var(--color-neo-black);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base Styles */
+body {
+  background-color: var(--color-neo-cream);
+  color: var(--color-neo-black);
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  
+  a, button, input, textarea, [role="button"] {
+    cursor: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Neo Brutalist Utilities */
+@layer utilities {
+  .border-brutal {
+    border: 3px solid var(--color-neo-black);
+  }
+  .border-brutal-thick {
+    border: 5px solid var(--color-neo-black);
+  }
+  .shadow-brutal {
+    box-shadow: var(--shadow-brutal);
+  }
+  .shadow-brutal-sm {
+    box-shadow: var(--shadow-brutal-sm);
+  }
+  .shadow-brutal-hover {
+    box-shadow: var(--shadow-brutal-hover);
+  }
+  /* Animation for buttons */
+  .btn-brutal {
+    @apply bg-neo-yellow font-display text-neo-black transition-transform transition-shadow duration-150 ease-out active:translate-x-[4px] active:translate-y-[4px] active:shadow-none hover:-translate-x-[2px] hover:-translate-y-[2px];
+    border: 3px solid var(--color-neo-black);
+    box-shadow: var(--shadow-brutal);
+  }
+  .btn-brutal:hover {
+    box-shadow: var(--shadow-brutal-hover);
+  }
 }
+
+/* Custom Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-slow {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-slow:hover {
+  animation-play-state: paused;
+}
+
