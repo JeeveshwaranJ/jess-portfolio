@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "jess.dev" }],
   creator: "jess.dev",
   publisher: "jess.dev",
-  metadataBase: new URL("https://jess.dev"),
+  metadataBase: new URL("https://jessdev.qzz.io"),
   alternates: {
     canonical: "/",
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jess.dev | I Build Digital Businesses — Websites, SaaS & AI Tools",
     description: "Jess.dev builds custom websites, SaaS products, and AI-powered tools for startups and businesses. View projects, process, and get in touch.",
-    url: "https://jess.dev",
+    url: "https://jessdev.qzz.io",
     siteName: "Jess.dev",
     type: "website",
     images: [
@@ -93,7 +93,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "jess.dev",
-              "url": "https://jess.dev",
+              "url": "https://jessdev.qzz.io",
               "jobTitle": "Web & AI Developer",
               "description": "Jess.dev builds custom websites, SaaS products, and AI-powered tools for startups and businesses.",
               "sameAs": [

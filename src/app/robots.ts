@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://jess.dev/sitemap.xml',
+    sitemap: 'https://jessdev.qzz.io/sitemap.xml',
   };
 }

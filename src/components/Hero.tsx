@@ -113,30 +113,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
+              className="relative"
             >
+              {/* Real H1 heading containing only text, clean of nested images/alt-tags */}
               <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] leading-none uppercase tracking-tight text-neo-cream drop-shadow-[8px_8px_0_rgba(18,18,18,1)]">
-                I{" "}
-                <span className="relative inline-block">
-                  Build
-                  {/* Sitting Avatar */}
-                  <motion.div
-                    className="absolute bottom-[64%] left-[64%] w-[42%] z-20 pointer-events-none"
-                    initial={{ y: -60, opacity: 0, rotate: -15 }}
-                    animate={{ y: 0, opacity: 1, rotate: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 180,
-                      damping: 12,
-                      delay: 0.6,
-                    }}
-                  >
-                    <img
-                      src="/avatar2.png"
-                      alt="Jess.dev illustrated avatar sitting on top of the hero text"
-                      className="w-full h-auto object-contain"
-                    />
-                  </motion.div>
-                </span>
+                I Build
                 <br />
                 <span className="text-neo-yellow relative inline-block">
                   Digital
@@ -159,9 +140,38 @@ export default function Hero() {
                       }}
                     />
                   </motion.svg>
-                </span><br />
+                </span>
+                <br />
                 Businesses
               </h1>
+
+              {/* Absolute positioned layout mirror overlay for sitting avatar positioning (Clean DOM Sibling) */}
+              <div className="absolute inset-0 pointer-events-none z-20 select-none" aria-hidden="true">
+                <span className="invisible font-display text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] leading-none uppercase tracking-tight">
+                  I{" "}
+                  <span className="relative inline-block visible pointer-events-auto">
+                    Build
+                    {/* Sitting Avatar perched on top of Build */}
+                    <motion.div
+                      className="absolute bottom-[64%] left-[64%] w-[42%] z-20 pointer-events-none"
+                      initial={{ y: -60, opacity: 0, rotate: -15 }}
+                      animate={{ y: 0, opacity: 1, rotate: 0 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 180,
+                        damping: 12,
+                        delay: 0.6,
+                      }}
+                    >
+                      <img
+                        src="/avatar2.png"
+                        alt="Jess.dev illustrated avatar sitting on top of the hero text"
+                        className="w-full h-auto object-contain"
+                      />
+                    </motion.div>
+                  </span>
+                </span>
+              </div>
             </motion.div>
 
             <div className="relative mt-8">
