@@ -116,10 +116,11 @@ export default function Hero() {
               className="relative"
             >
               {/* Real H1 heading containing only text, clean of nested images/alt-tags */}
-              <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] leading-none uppercase tracking-tight text-neo-cream drop-shadow-[8px_8px_0_rgba(18,18,18,1)]">
-                I Build
+              <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[9rem] leading-none uppercase tracking-tight text-neo-cream">
+                <span className="drop-shadow-[8px_8px_0_rgba(18,18,18,1)]">I</span>{" "}
+                <span className="drop-shadow-[8px_8px_0_#ffffff]">Build</span>
                 <br />
-                <span className="text-neo-yellow relative inline-block">
+                <span className="text-neo-yellow relative inline-block drop-shadow-[8px_8px_0_rgba(18,18,18,1)]">
                   Digital
                   {/* Scribble Underline */}
                   <motion.svg 
@@ -142,7 +143,7 @@ export default function Hero() {
                   </motion.svg>
                 </span>
                 <br />
-                Businesses
+                <span className="drop-shadow-[8px_8px_0_rgba(18,18,18,1)]">Businesses</span>
               </h1>
 
               {/* Absolute positioned layout mirror overlay for sitting avatar positioning (Clean DOM Sibling) */}
